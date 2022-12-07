@@ -54,11 +54,7 @@ class _QuizPageState extends State<QuizPage> {
       Icons.run_circle,
       color: Color.fromARGB(255, 255, 255, 254),
     ),
-     Icon(
-      Icons.run_circle,
-      color: Color.fromARGB(255, 255, 255, 254),
-    ),
- 
+    
   ];
 
   @override
