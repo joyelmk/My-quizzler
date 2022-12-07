@@ -25,6 +25,41 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+  List<Icon> scorkeeper = [
+    Icon(
+      Icons.phone,
+      color: Color.fromARGB(255, 109, 109, 235),
+    ),
+    Icon(
+      Icons.whatsapp,
+      color: Color.fromARGB(255, 45, 208, 56),
+    ),
+    Icon(
+      Icons.mail,
+      color: Color.fromARGB(255, 214, 42, 8),
+    ),
+    Icon(
+      Icons.help,
+      color: Color.fromARGB(255, 8, 169, 214),
+    ),
+    Icon(
+      Icons.mic,
+      color: Color.fromARGB(255, 255, 255, 255),
+    ),
+    Icon(
+      Icons.energy_savings_leaf_outlined,
+      color: Color.fromARGB(255, 193, 214, 8),
+    ),
+    Icon(
+      Icons.run_circle,
+      color: Color.fromARGB(255, 255, 255, 254),
+    ),
+    Icon(
+      Icons.run_circle,
+      color: Color.fromARGB(255, 255, 255, 254),
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -50,18 +85,25 @@ class _QuizPageState extends State<QuizPage> {
         Expanded(
           child: Padding(
             padding: EdgeInsets.all(15.0),
-            child: FlatButton(
-              textColor: Colors.white,
-              color: Colors.green,
+            child: TextButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStatePropertyAll(Color.fromARGB(255, 9, 244, 21)),
+              ),
               child: Text(
                 'True',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 250, 250, 250),
                   fontSize: 20.0,
                 ),
               ),
               onPressed: () {
-                //The user picked true.
+                //The user picked true
+                setState(() {
+                  scorkeeper.add(
+                    Icon(Icons.check, color: Colors.green),
+                  );
+                });
               },
             ),
           ),
@@ -69,8 +111,11 @@ class _QuizPageState extends State<QuizPage> {
         Expanded(
           child: Padding(
             padding: EdgeInsets.all(15.0),
-            child: FlatButton(
-              color: Colors.red,
+            child: TextButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStatePropertyAll(Color.fromARGB(255, 255, 6, 6)),
+              ),
               child: Text(
                 'False',
                 style: TextStyle(
@@ -80,11 +125,18 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked false.
+                setState(() {
+                  scorkeeper.add(
+                    Icon(Icons.close, color: Colors.red),
+                  );
+                });
               },
             ),
           ),
         ),
-        //TODO: Add a Row here as your score keeper
+        Row(
+          children: scorkeeper,
+        ),
       ],
     );
   }
